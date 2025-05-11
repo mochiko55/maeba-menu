@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>確認画面</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <img src="logo/こっち.jpg" alt="ロゴ" class="logo" />
+    </a>
+  </header>
+
+  <main class="confirm-container">
+    <h2>今日のご飯はこれで良き？</h2>
+
+    <div class="selected-photo">
+      <img id="selectedImage" src="" alt="選ばれた料理" />
+    </div>
+
+    <!-- フォーム（JSで送信） -->
+    <form id="orderForm">
+      <div class="note">
+        <p>※麺類とデザート以外のおかずはすべてご飯と味噌汁が付きます。</p>
+        <p>※お惣菜は日によって異なります。</p>
+        <p>※スーパーの開店２時間前のみ受付可能（要相談）</p>
+      </div>
+
+      <input type="hidden" name="menu" id="selectedMenu" />
+      <input type="hidden" name="request" id="hiddenRequest" />
+
+      <textarea id="userRequest" placeholder="リクエストまたは、ありしゃへの愛を叫んでね♡"></textarea>
+
+      <div class="button-group">
+        <button class="img-button" type="button" onclick="goBack()">
+          <img src="menu-images/写真㉗.png" alt="戻る" />
+        </button>
+        <button class="img-button" type="submit">
+          <img src="menu-images/写真㉘.png" alt="注文する" />
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // 選んだ画像のパスを反映
+    const selectedImage = localStorage.getItem("selectedImage");
+    const imgEl = document.getElementById("selectedImage");
+    const menuInput = document.getElementById("selectedMenu");
+    const requestTextarea = document.getElementById("userRequest");
+    const hiddenRequest = document.getElementById("hiddenRequest");
+
+    if (selectedImage && imgEl) {
+      imgEl.src = selectedImage;
+      menuInput.value = selectedImage;
+    }
+
+    requestTextarea.addEventListener("input", () => {
+      hiddenRequest.value = requestTextarea.value;
+    });
+
+    // JSでFormspreeへ送信
+    document.getElementById("orderForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      fetch("https://formspree.io/f/xqaqlrdb", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+          menu: menuInput.value,
+          request: hiddenRequest.value
+        })
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "thankyou.html";
+        } else {
+          alert("送信に失敗しました。もう一度お試しください💦");
+        }
+      });
+    });
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

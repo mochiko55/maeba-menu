@@ -1,0 +1,179 @@
+/* 共通設定 */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap');
+
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #fffaf3, #fef6ea);
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
+    background-image: url("menu-images/写真㉚.jpg"); /* ← 和紙風背景を用意してね！ */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+header,
+footer {
+  background-color: #584028;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.logo {
+  max-width: 150px;
+  height: auto;
+}
+
+/* トップページ */
+h1 {
+  font-size: 2.5rem;
+  margin: 5rem 0;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3列 */
+  gap: 20px;
+  padding: 2rem 1rem;
+}
+
+.photo-button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.photo-button img {
+  width: 90%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+
+.photo-button img:hover {
+  transform: scale(1.03);
+}
+
+/* 注釈エリア */
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+/* 確認画面 */
+.confirm-container {
+  padding: 2rem 1rem;
+}
+
+.confirm-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.selected-photo img {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+}
+
+/* 入力欄 */
+#userRequest {
+  width: 90%;
+  max-width: 400px;
+  height: 80px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ボタン画像 */
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.img-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.img-button img {
+  width: 130px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.img-button img:hover {
+  transform: scale(1.05);
+}
+
+/* 完了画面 */
+.thankyou-container {
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: #fffaf3;
+}
+.thankyou-image {
+  max-width: 90%;
+  width: 400px;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.thankyou-container h2 {
+  font-size: 4rem;
+  color: #d60000;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.thankyou-container p {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* スクロールボタン */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 999;
+  transition: background-color 0.2s;
+}
+
+.scroll-top-btn:hover {
+  background-color: #e59400;
+}
