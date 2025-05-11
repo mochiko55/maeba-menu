@@ -30,7 +30,7 @@ footer {
 
 /* トップページ */
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   margin: 5rem 0;
 }
 
@@ -62,7 +62,7 @@ h1 {
 
 /* 注釈エリア */
 .note {
-  font-size: 0.85rem;
+  font-size: 0.70rem;
   color: #666;
   margin-bottom: 1rem;
   line-height: 1.6;
